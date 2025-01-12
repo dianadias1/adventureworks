@@ -1,0 +1,155 @@
+version: 2
+
+sources:
+  - name: sap_adw
+    description: This is a replica of the Postgres database used by our client.
+    tables:  
+      - name: address
+        description: This table contains information about the address.
+        columns:
+          - name: adressid
+          - name: city
+          - name: stateprovinceid
+
+      - name: countryregion
+        description: This table contains information about the countries regions.
+        columns:
+          - name: countryregioncode
+          - name: name
+
+      - name: customer
+        description: This table contains information about the customers. 
+        columns:
+          - name: customerid
+          - name: storeid
+          - name: territoryid
+          - name: personid
+
+      - name: emailaddress
+        description: This table lists customer email contacts, both active and inactive.
+
+      - name: person
+        description: This table contains informations about the employees and customers.
+        columns: 
+          - name: businessentityid
+            description: A unique identifier for each individual
+            tests:
+              - unique
+              - not_null
+          - name: firstname
+            description: The first name of each individual
+          - name: lastname
+            description: The last name of each individual
+          - name: emailpromotion
+
+      - name: product
+        description: This table contais information about the products.
+        columns:
+          - name: productid
+          - name: name
+
+      - name: salesorderdetail
+        description: This table contains information about item details for each sales order.
+        columns:
+          - name: salesorderid
+          - name: salesorderdetailid
+          - name: orderqty
+          - name: productid
+          - name: specialofferid
+          - name: unitprice
+          - name: unitpricediscount
+
+      - name: salesorderheader
+        description: This table contains information about each sales order.
+        columns:
+          - name: salesorderid
+          - name: orderdate
+          - name: customerid
+          - name: salespersonid
+          - name: territoryid
+          - name: shipmethod
+          - name: credicardid
+          - name: subtotal
+          - name: taxamt
+          - name: freight
+          - name: totaldue
+
+      - name: salesorderheadersalesreason
+        description: This table links sales order information with sales reasons.
+        columns:
+          - name: salesorderid
+          - name: salesreasonid
+
+      - name: salesreason
+        description: This table lists the reasons for sales.
+        columns:
+          - name: salesreasonid
+          - name: name
+          - name: reasontype
+
+      - name: salesterritory
+        description:  This table defines sales territories.
+        columns:
+          - name: territoryid
+          - name: name
+          - name: countryregioncode
+          - name: geographicalregion
+          - name: salesytd
+          - name: saleslastyear
+          - name: costytd
+          - name: costylastyear
+
+      - name: shipmethod
+        description: This table contains information about shipping methods available for orders.
+        columns:
+          - name: shipmethodid
+          - name: name
+
+      - name: specialoffer
+        description: This table contains information about promotional offers.
+        columns:
+          - name: specialofferid
+          - name: discountpct
+          - name: type
+          - name: category
+
+      - name: specialofferproduct
+        description: This table links products to promotional offers.
+        columns:
+          - name: specialofferid
+          - name: productid
+
+      - name: stateprovince
+        description: This table contains information about states or provinces in different countries.
+        columns:
+          - name: stateprovinceid
+          - name: stateprovincecode
+          - name: countryregioncode
+          - name: name
+          - name: territoryid
+
+      - name: store 
+        description: This table contains information about stores acting as customers.
+        columns:
+          - name: businessentityid
+          - name: name
+          - name: salespersonid
+
+      
+  
+
+  
+      
+  
+
+  
+      
+  
+
+  
+
+  
+
+
+
+    
