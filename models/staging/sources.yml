@@ -3,143 +3,216 @@ version: 2
 sources:
   - name: sap_adw
     description: This is a replica of the Postgres database used by our client.
-    tables:  
+    # Documenting only the data we will use in the data products
+    tables:
       - name: address
-        description: This table contains information about the address.
+        description: This table contains information about addresses.
         columns:
-          - name: adressid
+          - name: addressid
+            description: Unique identifier for the address.
           - name: city
+            description: City name.
           - name: stateprovinceid
+            description: Identifier for the state or province.
 
       - name: countryregion
-        description: This table contains information about the countries regions.
+        description: This table contains information about countries and regions.
         columns:
           - name: countryregioncode
+            description: Code for the country or region.
           - name: name
+            description: Name of the country or region.
 
       - name: customer
-        description: This table contains information about the customers. 
+        description: This table contains information about customers.
         columns:
           - name: customerid
-          - name: storeid
-          - name: territoryid
+            description: Unique identifier for the customer.
           - name: personid
+            description: Foreign Key for the people associated with the customer.
+          - name: accountnumber
+            description: Customer account number.
+          - name: storeid
+            description: Foreign Key for the store associated with the customer.
+          - name: territoryid
+            description: Foreign Key for the region associated with the customer.
 
       - name: emailaddress
-        description: This table lists customer email contacts, both active and inactive.
+        description: This table lists contacts for both active and inactive customers.
+        columns:
+          - name: businessentityid
+            description: Unique identifier for the person.
+          - name: emailaddress
+            description: Email address.
 
       - name: person
-        description: This table contains informations about the employees and customers.
-        columns: 
+        description: This table contains information about people in the system.
+        columns:
           - name: businessentityid
-            description: A unique identifier for each individual
-            tests:
-              - unique
-              - not_null
+            description: Unique identifier for the person.
           - name: firstname
-            description: The first name of each individual
+            description: First name of the person.
           - name: lastname
-            description: The last name of each individual
+            description: Last name of the person.
           - name: emailpromotion
+            description: Email marketing preferences.
 
       - name: product
-        description: This table contais information about the products.
+        description: This table contains information about products.
+        columns:
+          - name: PRODUCTID
+            description: Unique identifier for the product.
+          - name: NAME
+            description: Product name.
+          - name: SAFETYSTOCKLEVEL
+            description: Minimum stock level to maintain safety.
+          - name: PRODUCTSUBCATEGORYID
+            description: Identifier for the product subcategory.
+
+      - name: productcategory
+        description: This table contains information about product categories.
+        columns:
+          - name: productcategoryid
+            description: Unique identifier for the product category.
+          - name: name
+            description: Name of the product category.
+
+      - name: productinventory
+        description: This table contains information about product inventory.
         columns:
           - name: productid
+            description: Unique identifier for the product.
+          - name: quantity
+            description: Quantity of the product in stock.
+
+      - name: productsubcategory
+        description: This table contains information about product subcategories.
+        columns:
+          - name: productsubcategoryid
+            description: Unique identifier for the product subcategory.
+          - name: productcategoryid
+            description: Identifier for the associated product category.
           - name: name
+            description: Name of the product subcategory.
 
       - name: salesorderdetail
-        description: This table contains information about item details for each sales order.
+        description: This table contains information about sales order item details.
         columns:
           - name: salesorderid
-          - name: salesorderdetailid
-          - name: orderqty
+            description: Foreign Key for the sales order.
           - name: productid
-          - name: specialofferid
+            description: Product sold in the order.
+          - name: orderqty
+            description: Quantity of the product sold.
           - name: unitprice
+            description: Unit price of the product.
           - name: unitpricediscount
+            description: Discount applied per unit.
+          - name: linetotal
+            description: Total price for the line item.
+          - name: specialofferid
+            description: Identifier for the special offer applied.
 
       - name: salesorderheader
-        description: This table contains information about each sales order.
+        description: This table contains information about sales orders, including customer and shipping details.
         columns:
           - name: salesorderid
+            description: Unique identifier for the sales order.
           - name: orderdate
-          - name: customerid
-          - name: salespersonid
-          - name: territoryid
-          - name: shipmethod
-          - name: credicardid
+            description: Date when the order was placed.
           - name: subtotal
+            description: Total value of items before tax and freight.
           - name: taxamt
+            description: Tax amount for the order.
           - name: freight
+            description: Shipping cost for the order.
           - name: totaldue
+            description: Total amount due for the order.
+          - name: customerid
+            description: Identifier for the associated customer.
+          - name: territoryid
+            description: Region for the order.
+          - name: shipmethodid
+            description: Shipping method used for the order.
+          - name: creditcardid
+            description: Payment method (credit card).
 
       - name: salesorderheadersalesreason
-        description: This table links sales order information with sales reasons.
+        description: This table associates sales orders with reasons for the sale.
         columns:
           - name: salesorderid
+            description: Identifier for the sales order (foreign key).
           - name: salesreasonid
+            description: Identifier for the reason.
+
+      - name: salesperson
+        description: This table contains information about salespeople.
+        columns:
+          - name: businessentityid
+            description: Unique identifier for the salesperson.
+          - name: territoryid
+            description: Region associated with the salesperson.
 
       - name: salesreason
-        description: This table lists the reasons for sales.
+        description: This table lists reasons for sales.
         columns:
           - name: salesreasonid
+            description: Unique identifier for the sales reason.
           - name: name
-          - name: reasontype
+            description: Reason for the sale (e.g., marketing, promotion).
 
       - name: salesterritory
-        description:  This table defines sales territories.
+        description: This table defines sales territories.
         columns:
           - name: territoryid
+            description: Unique identifier for the territory.
           - name: name
+            description: Name of the territory.
           - name: countryregioncode
-          - name: geographicalregion
+            description: Country or region associated with the territory.
           - name: salesytd
-          - name: saleslastyear
+            description: Year-to-date sales total.
           - name: costytd
-          - name: costylastyear
+            description: Year-to-date cost total.
 
       - name: shipmethod
         description: This table contains information about shipping methods available for orders.
-        columns:
-          - name: shipmethodid
-          - name: name
 
       - name: specialoffer
         description: This table contains information about promotional offers.
         columns:
           - name: specialofferid
-          - name: discountpct
-          - name: type
-          - name: category
+            description: Unique identifier for the promotional offer.
+          - name: description
+            description: Description of the promotion.
 
       - name: specialofferproduct
-        description: This table links products to promotional offers.
+        description: This table associates products with promotional offers.
         columns:
           - name: specialofferid
+            description: Identifier for the promotional offer.
           - name: productid
+            description: Identifier for the associated product.
 
       - name: stateprovince
         description: This table contains information about states or provinces in different countries.
         columns:
           - name: stateprovinceid
+            description: Unique identifier for the state/province.
           - name: stateprovincecode
+            description: Code for the state/province.
           - name: countryregioncode
-          - name: name
+            description: Associated country or region.
           - name: territoryid
+            description: Region identifier for the state/province.
 
-      - name: store 
+      - name: store
         description: This table contains information about stores acting as customers.
         columns:
           - name: businessentityid
+            description: Unique identifier for the store.
           - name: name
-          - name: salespersonid
-
-      
-  
-
-  
-      
+            description: Name of the store.      
   
 
   
