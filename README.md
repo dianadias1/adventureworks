@@ -1,3 +1,27 @@
+# Desafio Final LightHouse
+
+## Ativando o virtual environment
+
+O virtual environment deve ser ativado através do comando em bash no Windows:
+
+- `source venv/Scripts/activate` 
+
+Para desativar o ambiente virtual, basta rodar:
+
+- `deactivate`.
+
+## Rodando o dbt
+
+Executar um teste para confirmar se o **profiles.yml** e o **dbt_project.yml** estão configurados e rodando corretamente, além de verificar novamente as dependências e as conexões necessárias.
+
+Para isso, o comando a ser executado é:
+
+- `dbt debug`
+
+Para instalar os pacotes descritos no arquivo *packages.yml*, pode-se rodar:
+
+- `dbt deps`
+
 # Indicium Academy
 
 Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a insgestão das tabelas do SAP do Adventure Works.
