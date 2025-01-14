@@ -1,0 +1,14 @@
+adventureworks:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: WWTEWMZ.EZ21293 
+      host: WWTEWMZ-EZ21293.snowflakecomputing.com
+      user: DESAFIODIANA
+      password: Lighthouse2024!
+      role: ACCOUNTADMIN
+      database: ADVENTURE_WORKS
+      warehouse: COMPUTE_WH
+      schema: DEV
+      threads: 4
