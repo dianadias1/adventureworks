@@ -33,10 +33,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   adventureworks_dbt: # <-- Name of the project. If you renamed your project you have to change this as well
-    
+    +persist_docs:
+      relation: true
+      columns: true 
     # Applies to all files under models/example/
-    example:
-      materialized: view
+    staging:
+      +materialized: view
+    marts:
+      +materialized: view
 
 
 seeds:
