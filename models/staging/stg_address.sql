@@ -3,12 +3,13 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-	          "ADDRESSID"
+               "ADDRESSID" as address_id
                /* Foreign Key */
-	          ,"STATEPROVINCEID"
+               , "STATEPROVINCEID" as stateprovince_id
                
-	          ,"CITY"
+               , "CITY" as city
           from {{ source('sap_adw','address') }}
      )
 
-select * from source
+select *
+from source

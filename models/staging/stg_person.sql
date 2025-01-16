@@ -3,11 +3,11 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-	          "BUSINESSENTITYID"
+               "BUSINESSENTITYID" as businessentity_id
                
-	          ,"FIRSTNAME"
-               ,"LASTNAME"
+               , CONCAT("FIRSTNAME", ' ', "LASTNAME") as person_name
           from {{ source('sap_adw','person') }}
      )
 
-select * from source
+select * 
+from source
