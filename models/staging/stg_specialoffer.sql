@@ -3,11 +3,12 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-	          "SPECIALOFFERID"
+               "SPECIALOFFERID"
                
-	          ,"TYPE"
-               ,"CATEGORY"
+               , "TYPE"
+               , "CATEGORY"
           from {{ source('sap_adw','specialoffer') }}
      )
 
-select * from source
+select *
+from source

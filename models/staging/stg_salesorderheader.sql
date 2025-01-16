@@ -3,17 +3,18 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-	          "SALESORDERID"
+               "SALESORDERID"
                /* Foreign Key */
-	          ,"CUSTOMERID"
-               ,"TERRITORYID"
+               , "CUSTOMERID"
+               , "TERRITORYID"
                , "SHIPMETHODID"
                , "CREDITCARDID"
                
-               ,"ORDERDATE"
-               ,"SUBTOTAL"
-               ,"TOTALDUE"
+               , "ORDERDATE"
+               , "SUBTOTAL"
+               , "TOTALDUE"
           from {{ source('sap_adw','salesorderheader') }}
      )
 
-select * from source
+select *
+from source

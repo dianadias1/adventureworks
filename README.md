@@ -1,8 +1,10 @@
 # Desafio Final LightHouse
 
-## Ativando o virtual environment
+## Guia de Comandos
 
-O virtual environment deve ser ativado através do comando em bash no Windows:
+### Ativando o virtual environment
+
+O virtual environment deve ser ativado a cada novo dia através do comando em bash no Windows:
 
 - `source venv/Scripts/activate` 
 
@@ -10,17 +12,30 @@ Para desativar o ambiente virtual, basta rodar:
 
 - `deactivate`.
 
-## Rodando o dbt
+### dbt
 
-Executar um teste para confirmar se o **profiles.yml** e o **dbt_project.yml** estão configurados e rodando corretamente, além de verificar novamente as dependências e as conexões necessárias.
-
-Para isso, o comando a ser executado é:
+Para confirmar se o **profiles.yml** e o **dbt_project.yml** estão configurados e rodando corretamente, além de verificar novamente as dependências e as conexões necessárias:
 
 - `dbt debug`
 
 Para instalar os pacotes descritos no arquivo *packages.yml*, pode-se rodar:
 
 - `dbt deps`
+
+Para fazer testes nas sources:
+
+- `dbt test --select "source:*"`
+
+Para refazer os modelos e atualizar os metadados:
+
+- `dbt run -s <modelo> --full-refresh`
+
+### git
+
+Remover um arquivo caso eu tenha dado git add nele mas não quero commitar ele.
+
+- `git reset <nome_do_arquivo>`
+
 
 # Indicium Academy
 

@@ -3,11 +3,11 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-	          "PRODUCTSUBCATEGORYID"
+               "PRODUCTSUBCATEGORYID" as product_subcategory_id
                /* Foreign Key */
-	          ,"PRODUCTCATEGORYID"
+               , "PRODUCTCATEGORYID" as product_category_id
                
-               ,"NAME"
+               , "NAME" as subcategory_name
           from {{ source('sap_adw','productsubcategory') }}
      )
 

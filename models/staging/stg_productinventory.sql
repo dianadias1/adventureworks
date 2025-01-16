@@ -3,10 +3,11 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-	          "PRODUCTID"
+               "PRODUCTID" as product_id
 
-	          ,"QUANTITY"
+               , "QUANTITY" as quantity
           from {{ source('sap_adw','productinventory') }}
      )
 
-select * from source
+select *
+from source
