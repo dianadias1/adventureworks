@@ -7,7 +7,7 @@ sources:
     # Documenting only the data we will use in the data products
     tables:
       - name: address
-        description: This table contains information about addresses.
+        description: Stores address information.
         columns:
           - name: ADDRESSID
             description: Unique identifier for the address.
@@ -20,7 +20,7 @@ sources:
             description: Identifier for the state or province.
 
       - name: countryregion
-        description: This table contains information about countries and regions.
+        description: Stores country and region details.
         columns:
           - name: COUNTRYREGIONCODE
             description: Code for the country or region.
@@ -31,7 +31,7 @@ sources:
             description: Name of the country or region.
 
       - name: customer
-        description: This table contains information about customers.
+        description: Contains information about customers.
         columns:
           - name: CUSTOMERID
             description: Unique identifier for the customer.
@@ -46,20 +46,20 @@ sources:
             description: Foreign Key for the region associated with the customer.
 
       - name: emailaddress
-        description: This table lists contacts for both active and inactive customers.
+        description: Lists email addresses for customers, both active and inactive customers.
         columns:
           - name: EMAILADDRESSID
-            description: Unique identifier for emailaddress.
+            description: Unique identifier for email address.
             tests:
               - not_null
               - unique
           - name: BUSINESSENTITYID
-            description: Unique identifier for the person.
+            description: Foreign key for the associated person.
           - name: EMAILADDRESS
             description: Email address.
 
       - name: person
-        description: This table contains information about people in the system.
+        description: Contains information about people.
         columns:
           - name: BUSINESSENTITYID
             description: Unique identifier for the person.
@@ -67,14 +67,14 @@ sources:
               - not_null
               - unique
           - name: FIRSTNAME
-            description: First name of the person.
+            description: Person's first name.
           - name: LASTNAME
-            description: Last name of the person.
+            description: Person's last name.
           - name: EMAILPROMOTION
             description: Email marketing preferences.
 
       - name: product
-        description: This table contains information about products.
+        description: Contains information about products.
         columns:
           - name: PRODUCTID
             description: Unique identifier for the product.
@@ -84,12 +84,12 @@ sources:
           - name: NAME
             description: Product name.
           - name: SAFETYSTOCKLEVEL
-            description: Minimum stock level to maintain safety.
+            description: Minimum stock level for safety.
           - name: PRODUCTSUBCATEGORYID
             description: Identifier for the product subcategory.
 
       - name: productcategory
-        description: This table contains information about product categories.
+        description: Contains information about product categories.
         columns:
           - name: PRODUCTCATEGORYID
             description: Unique identifier for the product category.
@@ -100,7 +100,7 @@ sources:
             description: Name of the product category.
 
       - name: productinventory
-        description: This table contains information about product inventory.
+        description: Stores information about product inventory.
         columns:
           - name: PRODUCTID
             description: Unique identifier for the product.
@@ -110,7 +110,7 @@ sources:
             description: Quantity of the product in stock.
 
       - name: productsubcategory
-        description: This table contains information about product subcategories.
+        description: Stores information about product subcategories.
         columns:
           - name: PRODUCTSUBCATEGORYID
             description: Unique identifier for the product subcategory.
@@ -123,7 +123,7 @@ sources:
             description: Name of the product subcategory.
 
       - name: salesorderdetail
-        description: This table contains information about sales order item details.
+        description: Stores information about sales order item details.
         columns:
           - name: SALESORDERID
             description: Foreign Key for the sales order header.
@@ -139,7 +139,7 @@ sources:
             description: Identifier for the special offer applied.
 
       - name: salesorderheader
-        description: This table contains information about sales orders, including customer and shipping details.
+        description: Stores information about sales orders, including customer and shipping details.
         columns:
           - name: SALESORDERID
             description: Unique identifier for the sales order.
@@ -161,12 +161,12 @@ sources:
           - name: TERRITORYID
             description: Region for the order.
           - name: SHIPMETHODID
-            description: Identifier fot the shipping method used for the order.
+            description: Identifier for the shipping method used for the order.
           - name: CREDITCARDID
-            description: Identifier fot thepayment method (credit card).
+            description: Identifier for thepayment method (credit card).
 
       - name: salesorderheadersalesreason
-        description: This table associates sales orders with reasons for the sale.
+        description: Links sales orders with reasons for the sale.
         columns:
           - name: SALESORDERID
             description: Identifier for the sales order (foreign key).
@@ -174,7 +174,7 @@ sources:
             description: Identifier for the reason.
 
       - name: salesperson
-        description: This table contains information about salespeople.
+        description: Stores information about salespeople.
         columns:
           - name: BUSINESSENTITYID
             description: Unique identifier for the salesperson.
@@ -182,7 +182,7 @@ sources:
             description: Region associated with the salesperson.
 
       - name: salesreason
-        description: This table lists reasons for sales.
+        description: Stores reasons for sales.
         columns:
           - name: SALESREASONID
             description: Unique identifier for the sales reason.
@@ -213,7 +213,7 @@ sources:
             description: Last year cost total.
 
       - name: shipmethod
-        description: This table contains information about shipping methods available for orders.
+        description: Stores information about shipping methods available for orders.
         columns:
           - name: SHIPMETHODID
             description: Identifier to the shipping method used for the order.
@@ -221,7 +221,7 @@ sources:
             description:  Shipping method used for the order.
 
       - name: specialoffer
-        description: This table contains information about promotional offers.
+        description: Stores information about promotional offers.
         columns:
           - name: SPECIALOFFERID
             description: Unique identifier for the promotional offer.
@@ -239,21 +239,21 @@ sources:
             description: Identifier for the associated product.
 
       - name: stateprovince
-        description: This table contains information about states or provinces in different countries.
+        description: Stores information about states or provinces in different countries.
         columns:
           - name: STATEPROVINCEID
-            description: Unique identifier for the state/province.
+            description: Unique identifier for the state or province.
           - name: COUNTRYREGIONCODE
             description: Associated country or region.
           - name: TERRITORYID
-            description: Region identifier for the state/province.
+            description: Region identifier for the state or province.
           - name: NAME
-            description: Name of de state/province.
+            description: Name of the state or province.
           - name: ISONLYSTATEPROVINCEFLAG
-            description: If is only statate province or not.
+            description: If is only state province or not.
 
       - name: store
-        description: This table contains information about stores acting as customers.
+        description: Stores information about stores acting as customers.
         columns:
           - name: BUSINESSENTITYID
             description: Unique identifier for the store.

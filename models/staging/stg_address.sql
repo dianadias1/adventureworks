@@ -7,7 +7,7 @@ with
                /* Foreign Key */
                , "STATEPROVINCEID" as stateprovince_id
                
-               , "CITY" as city
+               , "CITY" as city_name
           from {{ source('sap_adw','address') }}
      )
 
