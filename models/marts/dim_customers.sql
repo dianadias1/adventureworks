@@ -12,7 +12,7 @@ with
                , person_id
                , store_id
                , territory_id
-               , client_category
+               , customer_category
           from {{ ref('stg_customer') }}
      )
 
@@ -33,8 +33,7 @@ with
      , final_customers as (
           select
           {{ dbt_utils.generate_surrogate_key([
-               "customer.person_id"
-               , "person.businessentity_id"
+               "customer.customer_id"
                ]) }} as coustomens_sk
                , customer.customer_id
                , customer.person_id
