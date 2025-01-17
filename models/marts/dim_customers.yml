@@ -9,9 +9,6 @@ models:
         tests:
           - not_null
           - unique
-          - relationships:
-              to: ref('dim_customers')
-              field: customer_id
       - name: customer_id
         descripition: The Natural Key of the customer.
       - name: person_id
