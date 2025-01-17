@@ -20,9 +20,9 @@ with
                ]) }} as salesreason_sk
           , salesorder_id
           , sales_reason_category
-          from salesreason
-          left join salesorderheader_salesreason
-               on salesreason.sales_reason_id = salesorderheader_salesreason.sales_reason_id
+          from salesorderheader_salesreason
+          left join salesreason
+               on salesorderheader_salesreason.sales_reason_id = salesreason.sales_reason_id
      ) 
 
 select * from final_salesreason
