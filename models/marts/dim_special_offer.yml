@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_special_offer
+    description: Contains information about offer.
+    columns:
+      - name: specialoffer_sk
+        description: The Primary Key of the sales reason.
+        tests:
+          - not_null
+          - unique
+
+      - name: specialoffer_id
+        description: Foreign Key for the the promotional offer.
+      
+      - name: offer_type
+        description: category of the promotion.
+      
+      - name: offer_category
+        description: If the promotion is from reseller or customer.
+
+      - name: product_id
+        description: Identifier for the associated product.

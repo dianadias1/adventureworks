@@ -19,6 +19,7 @@ with
           select
                {{ dbt_utils.generate_surrogate_key([
                "specialoffer.specialoffer_id"
+               , "specialofferproduct.product_id"
           ]) }} as specialoffer_sk
           , specialoffer.specialoffer_id
           , specialoffer.offer_type
