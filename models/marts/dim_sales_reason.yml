@@ -1,0 +1,17 @@
+ersion: 2
+
+models:
+  - name: dim_sales_reason
+    description: Contains information about sales reason.
+    columns:
+      - name: salesreason_sk
+        description: The Primary Key of the sales reason.
+        tests:
+          - not_null
+          - unique
+
+      - name: salesorder_id
+        description: Foreign Key for the sales order.
+      
+      - name: sales_reason_category
+        description: Reason for the sale.
