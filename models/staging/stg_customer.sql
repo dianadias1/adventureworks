@@ -9,10 +9,10 @@ with
                , "STOREID" as store_id
                , "TERRITORYID" as territory_id
                , case
-                    when "PERSONID" is not null then "person"
-                    when "STOREID" is not null then "store"
-                    else "other"
-               end as customer_type
+                    when person_id is not null and store_id is null then 'person'
+                    when store_id is not null and person_id is null then 'store'
+                    else 'other'
+               end as customer_category
           from {{ source('sap_adw','customer') }}
      )
 

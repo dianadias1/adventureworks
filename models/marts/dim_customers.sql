@@ -12,6 +12,7 @@ with
                , person_id
                , store_id
                , territory_id
+               , client_category
           from {{ ref('stg_customer') }}
      )
 
@@ -39,12 +40,13 @@ with
                , customer.person_id
                , customer.store_id
                , customer.territory_id
+               , customer.customer_category
                , person.person_name
                , store.store_name
                , emailaddress.email_address
-          from person
-          left join customer
-               on person.businessentity_id = customer.person_id
+          from customer
+          left join person
+               on customer.person_id = person.businessentity_id
           left join store
                on customer.store_id = store.businessentity_id
           left join emailaddress
