@@ -11,7 +11,7 @@ models:
           - unique
 
       - name: specialoffer_id
-        description: Foreign Key for the the promotional offer.
+        description: Natural Key for the the promotional offer.
       
       - name: offer_type
         description: category of the promotion.
