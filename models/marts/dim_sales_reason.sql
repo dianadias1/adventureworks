@@ -26,4 +26,5 @@ with
                on salesorderheader_salesreason.sales_reason_id = salesreason.sales_reason_id
      ) 
 
-select * from final_salesreason
+select *
+from final_salesreason
