@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_sales_person
+    description: Contains information about sales person.
+    columns:
+      - name: salesperson_sk
+        description: The Primary Key of the sales person.
+        tests:
+          - not_null
+          - unique
+
+      - name: person_name
+        description: Person's name.
+      
+      - name: territory_id
+        description: Foreign Key for the region associated with the salesperson.
