@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_region
+    description: Contains information about regions.
+    columns:
+      - name: region_sk
+        description: The Primary Key of the region.
+        tests:
+          - not_null
+          - unique
+
+      - name: territory_id
+        description: Unique identifier for the territory.
+
+      - name: geographical_region
+        description: Name  of geographical region.
+
+      - name: territory_name
+        description: Name of the territory.
+
+      - name: country_region_name
+        description: Name of the country or region.
+
+      - name: state_province_name
+        description: Name of the state or province.
+
+      - name: territory_sales_ytd
+        description: Year-to-date sales total.
+
+      - name: territory_sales_last_year
+        description: Last year sales total.
+
+      - name: territory_cost_ytd
+        description: Year-to-date cost total.
+      
+      - name: territory_cost_last_year
+        description: Last year cost total.
