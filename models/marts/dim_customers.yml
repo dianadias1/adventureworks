@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_customers
+    descripition: Contains information about customers.
+    columns:
+      - name: customers_sk
+        descripition: The Primary Key of the customer.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+      - name: customer_id
+        descripition: The Natural Key of the customer.
+      - name: person_id
+        descripition: Foreign Key for the people associated with the customer.
+      - name: store_id
+        descripition: Foreign Key for the store associated with the customer.
+      - name: territory_id
+        descripition: Foreign Key for the region associated with the customer.
+      - name: customer_category
+        descripition: Category of the customer.
+      - name: person_name
+        descripition: Person's name.
+      - name: store_name
+        descripition: Stores's name.
+      - name: email_address
+        descripition: Email address.

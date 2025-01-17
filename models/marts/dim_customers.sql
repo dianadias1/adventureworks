@@ -34,7 +34,7 @@ with
           select
           {{ dbt_utils.generate_surrogate_key([
                "customer.customer_id"
-               ]) }} as coustomens_sk
+               ]) }} as customers_sk
                , customer.customer_id
                , customer.person_id
                , customer.store_id
