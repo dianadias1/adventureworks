@@ -17,6 +17,7 @@ with
           select
           {{ dbt_utils.generate_surrogate_key([
                "salesreason.sales_reason_id"
+               , "salesorderheader_salesreason.salesorder_id"
                ]) }} as salesreason_sk
           , salesorder_id
           , sales_reason_category
