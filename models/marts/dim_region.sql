@@ -45,10 +45,11 @@ with
           , salesterritory.territory_cost_ytd
           , salesterritory.territory_cost_last_year
           from salesterritory
-          left join countryregion
-               on salesterritory.country_region_code = countryregion.country_region_code
           left join stateprovince
                on salesterritory.territory_id = stateprovince.territory_id
+          left join countryregion
+               on salesterritory.country_region_code = countryregion.country_region_code
+          
      )
 
 select *
