@@ -20,10 +20,9 @@ with
           ]) }} as salesperson_sk
           , person.person_name
           , salesperson.territory_id
-          from person
-          left join salesperson
-               on person.businessentity_id = salesperson.businessentity_id
-          where salesperson.businessentity_id is not null         
+          from salesperson
+          left join person
+               on salesperson.businessentity_id = person.businessentity_id        
      )
 
 select *
