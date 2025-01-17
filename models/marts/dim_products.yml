@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Contains information about products.
+    columns:
+      - name: products_sk
+        description: The Primary Key of the products.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description:  Product name.
+
+      - name: subcategory_name
+        description: Name of the product subcategory.
+
+      - name: category_name
+        description:  Name of the product category.
+        
+      - name: total_quantity
+        description: Quantity of the product in stock.

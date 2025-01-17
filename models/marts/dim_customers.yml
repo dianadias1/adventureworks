@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Contains information about customers.
+    columns:
+      - name: customers_sk
+        description: The Primary Key of the customer.
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: The Natural Key of the customer.
+
+      - name: person_id
+        description: Foreign Key for the people associated with the customer.
+
+      - name: store_id
+        description: Foreign Key for the store associated with the customer.
+
+      - name: territory_id
+        description: Foreign Key for the region associated with the customer.
+
+      - name: customer_category
+        description: Category of the customer.
+
+      - name: person_name
+        description: Person's name.
+
+      - name: store_name
+        description: Stores's name.
+
+      - name: email_address
+        description: Email address.

@@ -190,7 +190,7 @@ sources:
               - not_null
               - unique
           - name: NAME
-            description: Reason for the sale (e.g., marketing, promotion).
+            description: Reason for the sale.
 
       - name: salesterritory
         description: This table defines sales territories.
