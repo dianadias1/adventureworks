@@ -5,6 +5,7 @@ with
                /* Primary Key */
                "SALESORDERID" as salesorder_id
                /* Foreign Key */
+               , "SALESPERSONID" as sales_person_id
                , "CUSTOMERID" as customer_id
                , "TERRITORYID" as territory_id
                , "SHIPMETHODID" as shipmethod_id

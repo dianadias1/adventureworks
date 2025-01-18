@@ -50,16 +50,19 @@ models:
               to: ref('dim_products')
               field: products_sk
 
-    - name: salesorder_id
-      description: Natural Key for the the promotional offer.
+    - name: salesperson_fk
+      description: Foreign Key for the sales person.
       tests:
-        - not_null
-
-    - name: person_id
-      description: Foreign Key for the people associated with the customer.
-
-    - name: salesorderdetail_id
-      description: Foreign key for the sales order detail.
+        - relationships:
+              to: ref('dim_sales_person')
+              field: salesperson_sk
+    
+    - name: salesreason_fk
+      description: Foreign Key for the sales reason.
+      tests:
+        - relationships:
+              to: ref('dim_sales_reason')
+              field: salesreason_sk
 
     - name: order_date
       description: Date when the order
