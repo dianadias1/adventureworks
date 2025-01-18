@@ -36,6 +36,7 @@ with
                , "countryregion.country_region_name"
           ]) }} as region_sk
           , salesterritory.territory_id
+          , stateprovince.stateprovince_id
           , salesterritory.geographical_region
           , salesterritory.territory_name
           , countryregion.country_region_name

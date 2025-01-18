@@ -11,10 +11,13 @@ models:
           - unique
 
       - name: territory_id
-        description: Unique identifier for the territory.
+        description: Natural Key for the territory.
+
+      - name: stateprovince_id
+        description: Natural Key for the state province.
 
       - name: geographical_region
-        description: Name  of geographical region.
+        description: Name of geographical region.
 
       - name: territory_name
         description: Name of the territory.

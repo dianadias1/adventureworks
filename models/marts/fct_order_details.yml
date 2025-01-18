@@ -5,7 +5,7 @@ models:
     description: Stores information about sales order item details.
     columns:
     - name: orderdetail_sk
-      description: The Primary Key of order details.
+      description: The Primary Key of the order details.
       tests:
           - not_null
           - unique
@@ -43,7 +43,7 @@ models:
               field: specialoffer_sk
 
     - name: products_fk
-      description: Foreign Key for the product
+      description: Foreign Key for the product.
       tests:
         - not_null
         - relationships:
@@ -64,8 +64,14 @@ models:
               to: ref('dim_sales_reason')
               field: salesreason_sk
 
+    - name: salesorder_id
+      description:  Natural Key for the sales order.
+
+    - name: product_id
+      description:  Natural Key for the product.
+      
     - name: order_date
-      description: Date when the order
+      description: Date for the sales order.
       tests:
         - relationships:
               to: ref('dim_dates')

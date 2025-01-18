@@ -11,10 +11,10 @@ models:
           - unique
 
       - name: specialoffer_id
-        description: Natural Key for the the promotional offer.
+        description: Natural Key for the promotional offer.
       
       - name: offer_type
-        description: category of the promotion.
+        description: Category of the promotion.
       
       - name: offer_category
         description: If the promotion is from reseller or customer.

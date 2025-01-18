@@ -16,11 +16,12 @@ with
      , final_salesreason as (
           select
           {{ dbt_utils.generate_surrogate_key([
-               "salesreason.sales_reason_id"
+               "salesorderheader_salesreason.sales_reason_id"
                , "salesorderheader_salesreason.salesorder_id"
                ]) }} as salesreason_sk
-          , salesorder_id
-          , sales_reason_category
+          , salesorderheader_salesreason.sales_reason_id
+          , salesorderheader_salesreason.salesorder_id
+          , salesreason.sales_reason_category
           from salesorderheader_salesreason
           left join salesreason
                on salesorderheader_salesreason.sales_reason_id = salesreason.sales_reason_id
