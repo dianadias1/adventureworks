@@ -3,9 +3,9 @@ with
           select
                /* Selecting only the data we will use in the data products */
                /* Primary Key */
-               "SHIPMETHODID"
+               "SHIPMETHODID" as shipmethod_id
 
-               , "NAME"
+               , "NAME" as ship_method_name
           from {{ source('sap_adw','shipmethod') }}
      )
 

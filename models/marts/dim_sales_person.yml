@@ -15,3 +15,6 @@ models:
       
       - name: territory_id
         description: Foreign Key for the region associated with the salesperson.
+
+      - name: businessentity_id
+        description: Foreign Key  for the salesperson.

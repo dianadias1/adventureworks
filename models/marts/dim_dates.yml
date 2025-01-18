@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: dim_dates
+    description: Date dimension table.
+    columns:
+    - name: date_day
+      description: The specific calendar date (YYYY-MM-DD format).
+        - unique
+
+    - name: day_of_week
+      description: The numeric representation of the day of the week.
+
+    - name: day_of_week_name
+      description: Full name of the day of the week.
+
+    - name: day_of_week_name_short
+      description: Abbreviated name of the day of the week.
+
+    - name: day_of_month
+      description: The day of the month.
+
+    - name: day_of_year
+      description: The day of the year.
+
+    - name: month_of_year
+      description: The numeric representation of the month.
+
+    - name: month_name
+      description: Full name of the month.
+
+    - name: month_name_short
+      description: Abbreviated name of the month.
+
+    - name: quarter_of_year
+      description: The quarter of the year.
+
+    - name: quarter_start_date
+      description: The start date of the quarter for the given date.
+
+    - name: quarter_end_date
+      description: The end date of the quarter for the given date.
+
+    - name: year_number
+      description: The year associated with the date.
+
+    - name: year_start_date
+      description: The start date of the year for the given date.
+
+    - name: year_end_date
+      description: The end date of the year for the given date.

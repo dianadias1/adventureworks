@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_shipmethod
+    description: Contains information about ship method.
+    columns:
+      - name: shipmethod_sk
+        description: The Primary Key of the sales reason.
+        tests:
+          - not_null
+          - unique
+
+      - name: shipmethod_id
+        description: Natural Key for the the ship method.
+
+      - name: ship_method_name
+        description: Name of the shipping method.

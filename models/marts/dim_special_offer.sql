@@ -30,4 +30,5 @@ with
                on specialoffer.specialoffer_id = specialofferproduct.specialoffer_id
      )
 
-select * from final_special_offer
+select *
+from final_special_offer

@@ -18,8 +18,9 @@ with
           {{ dbt_utils.generate_surrogate_key([
                "salesperson.businessentity_id"
           ]) }} as salesperson_sk
-          , person.person_name
+          , salesperson.businessentity_id
           , salesperson.territory_id
+          , person.person_name
           from salesperson
           left join person
                on salesperson.businessentity_id = person.businessentity_id        

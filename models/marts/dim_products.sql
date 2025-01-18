@@ -38,6 +38,7 @@ with
                 , "subcategory.product_category_id"
                 , "subcategory.product_subcategory_id"
             ]) }} as products_sk
+            , product.product_id
             , product.product_name
             , subcategory.subcategory_name
             , category.category_name
