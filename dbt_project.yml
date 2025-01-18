@@ -40,7 +40,7 @@ models:
     staging:
       +materialized: view
     marts:
-      +materialized: view
+      +materialized: table
 
 
 seeds:
