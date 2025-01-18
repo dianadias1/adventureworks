@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_shipmethod
+  - name: dim_ship_method
     description: Contains information about ship method.
     columns:
       - name: shipmethod_sk
