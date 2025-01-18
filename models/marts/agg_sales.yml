@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: agg_sales
+    description: Aggregates sales information by salesperson and region
+    columns:
+    - name: aggsales_sk
+      description: The Primary Key of table.
+      tests:
+          - not_null
+          - unique

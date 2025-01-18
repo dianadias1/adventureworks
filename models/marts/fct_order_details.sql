@@ -102,6 +102,8 @@ with
                , products.products_sk as products_fk
                , sales_person.salesperson_sk as salesperson_fk
                , deduping_sales_reason.salesreason_sk as salesreason_fk
+               , orders_detail.salesorder_id
+               , orders_detail.product_id
                , orders_header.payment_method
                , orders_header.subtotal
                , orders_header.total_due

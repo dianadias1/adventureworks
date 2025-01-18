@@ -13,6 +13,9 @@ models:
       - name: territory_id
         description: Unique identifier for the territory.
 
+      - name: stateprovince_id
+        description: Unique identifier por the state province.
+
       - name: geographical_region
         description: Name  of geographical region.
 

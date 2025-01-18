@@ -64,6 +64,12 @@ models:
               to: ref('dim_sales_reason')
               field: salesreason_sk
 
+    - name: salesorder_id
+      description:  Unique identifier por the sales order.
+
+    - name: product_id
+      description:  Unique identifier por the product.
+      
     - name: order_date
       description: Date when the order
       tests:
