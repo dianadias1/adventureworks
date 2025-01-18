@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: fct_order_details
+    description: Stores information about sales order item details.
+    columns:
+    - name: orderdetail_sk
+      description: The Primary Key of order details.
+      tests:
+          - not_null
+          - unique
+    
+    - name: customers_fk
+      description: Foreign Key for the customer.
+      tests:
+        - not_null
+        - relationships:
+              to: ref('dim_customers')
+              field: customers_sk
+
+    - name: region_fk
+      description: Foreign Key for the region.
+      tests:
+        - not_null
+        - relationships:
+              to: ref('dim_region')
+              field: region_sk
+
+    - name: shipmethod_fk
+      description: Foreign Key for the ship method.
+      tests:
+        - not_null
+        - relationships:
+              to: ref('dim_ship_method')
+              field: shipmethod_sk
+
+    - name: specialoffer_fk
+      description: Foreign Key for the special offer.
+      tests:
+        - not_null
+        - relationships:
+              to: ref('dim_special_offer')
+              field: specialoffer_sk
+
+    - name: products_fk
+      description: Foreign Key for the product
+      tests:
+        - not_null
+        - relationships:
+              to: ref('dim_products')
+              field: products_sk
+
+    - name: salesorder_id
+      description: Natural Key for the the promotional offer.
+      tests:
+        - not_null
+
+    - name: person_id
+      description: Foreign Key for the people associated with the customer.
+
+    - name: salesorderdetail_id
+      description: Foreign key for the sales order detail.
+
+    - name: order_date
+      description: Date when the order
+      tests:
+        - relationships:
+              to: ref('dim_dates')
+              field: date_day
+
+    - name: payment_method
+      description: Payment method.
+
+    - name: subtotal
+      description: Total value of items before tax and freight.
+
+    - name: total_due
+      description: Total amount due for the order.
+
+    - name: orderqty
+      description: Quantity of the product sold.
+
+    - name: unitprice
+      description: Unit price of the product.
+
+    - name: unitprice_discount
+      description: Discount applied per unit.
