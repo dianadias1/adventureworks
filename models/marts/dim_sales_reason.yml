@@ -10,8 +10,11 @@ models:
           - not_null
           - unique
 
+      - name: sales_reason_id
+        description: Natural Key for the sales reason.
+
       - name: salesorder_id
         description: Foreign Key for the sales order.
-      
+
       - name: sales_reason_category
         description: Reason for the sale.

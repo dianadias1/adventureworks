@@ -13,8 +13,8 @@ models:
       - name: person_name
         description: Person's name.
       
+      - name: businessentity_id
+        description: Natural Key for the sales person.
+        
       - name: territory_id
         description: Foreign Key for the region associated with the salesperson.
-
-      - name: businessentity_id
-        description: Foreign Key  for the salesperson.

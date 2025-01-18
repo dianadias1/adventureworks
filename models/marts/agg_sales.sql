@@ -30,7 +30,7 @@ with
           ]) }} as aggsales_sk
           , dim_region.region_sk as region_fk
           , dim_sales_person.salesperson_sk as salesperson_fk
-          , fct_order_details.orderdetail_sk as orders_detail_fk
+          , fct_order_details.orderdetail_sk as orderdetail_fk
           , dim_region.geographical_region
           , dim_region.territory_name
           , dim_region.country_region_name

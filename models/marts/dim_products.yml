@@ -10,6 +10,9 @@ models:
           - not_null
           - unique
 
+      - name: product_id
+        description: Natural Key for the product.
+
       - name: product_name
         description: Product name.
 
