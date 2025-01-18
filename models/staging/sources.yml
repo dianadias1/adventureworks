@@ -125,7 +125,7 @@ sources:
       - name: salesorderdetail
         description: Stores information about sales order item details.
         columns:
-          - name: "SALESORDERDETAILID"
+          - name: SALESORDERDETAILID
             description: Unique identifier for sales order detail.
           - name: SALESORDERID
             description: Foreign Key for the sales order header.
