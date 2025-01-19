@@ -26,7 +26,6 @@ with
                , "dim_region.country_region_name"
                , "dim_sales_person.businessentity_id"
                , "fct_order_details.salesorder_id"
-               , "fct_order_details.product_id"
           ]) }} as aggsales_sk
           , dim_region.region_sk as region_fk
           , dim_sales_person.salesperson_sk as salesperson_fk

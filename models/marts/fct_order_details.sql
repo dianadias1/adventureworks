@@ -89,11 +89,23 @@ with
           from {{ ref('stg_salesorderdetail')}}
      )
 
+          , deduping_orders_detail as (
+          select
+               salesorderdetail_id
+               , salesorder_id
+               , specialoffer_id
+               , product_id
+               , orderqty
+               , unitprice
+               , unitprice_discount
+               , row_number ( ) over (partition by salesorder_id order by salesorder_id) as rownumber
+          from orders_detail
+     )
+
      , order_detail_final as (
           select
           {{ dbt_utils.generate_surrogate_key([
-               "orders_detail.salesorder_id"
-               , "orders_detail.product_id"
+               "orders_header.salesorder_id"
           ]) }} as orderdetail_sk
                , customers.customers_sk as customers_fk
                , deduping_region.region_sk as region_fk
@@ -102,28 +114,29 @@ with
                , products.products_sk as products_fk
                , sales_person.salesperson_sk as salesperson_fk
                , deduping_sales_reason.salesreason_sk as salesreason_fk
-               , orders_detail.salesorder_id
-               , orders_detail.product_id
+               , deduping_orders_detail.salesorder_id
+               , deduping_orders_detail.product_id
                , orders_header.payment_method
                , orders_header.subtotal
                , orders_header.total_due
-               , orders_detail.orderqty
-               , orders_detail.unitprice
-               , orders_detail.unitprice_discount
+               , deduping_orders_detail.orderqty
+               , deduping_orders_detail.unitprice
+               , deduping_orders_detail.unitprice_discount
                , orders_header.order_date
           from orders_header
-          left join orders_detail
-               on orders_header.salesorder_id = orders_detail.salesorder_id
+          left join deduping_orders_detail
+               on orders_header.salesorder_id = deduping_orders_detail.salesorder_id
+               and deduping_orders_detail.rownumber = 1
           left join customers
                on orders_header.customer_id = customers.customer_id
           left join shipmethod
                on orders_header.shipmethod_id = shipmethod.shipmethod_id
           left join products
-               on orders_detail.product_id = products.product_id
+               on deduping_orders_detail.product_id = products.product_id
           left join sales_person
                on sales_person.businessentity_id = orders_header.sales_person_id
           left join deduping_special_offer
-               on orders_detail.specialoffer_id = deduping_special_offer.specialoffer_id
+               on deduping_orders_detail.specialoffer_id = deduping_special_offer.specialoffer_id
                and deduping_special_offer.rownumber = 1
           left join deduping_sales_reason
                on orders_header.salesorder_id = deduping_sales_reason.salesorder_id

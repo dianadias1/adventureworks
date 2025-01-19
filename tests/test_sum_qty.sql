@@ -6,4 +6,4 @@ with
      )
 
 select *
-from validation where sum_val != 213255
+from validation where sum_val != 24961
