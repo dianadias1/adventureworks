@@ -25,6 +25,12 @@ models:
       - name: customer_category
         description: Category of the customer.
 
+      - name:  territory_name
+        description: Name of the territory.
+
+      - name: geographical_region
+        description: Name of the country or region.
+      
       - name: person_name
         description: Person's name.
 

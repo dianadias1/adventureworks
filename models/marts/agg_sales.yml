@@ -32,6 +32,25 @@ models:
               to: ref('fct_order_details')
               field: orderdetail_sk
 
+    - name: customers_fk
+      description: Foreign Key for the order details.
+      tests:
+        - relationships:
+              to: ref('dim_customers')
+              field: customers_sk
+      
+    - name: customer_id
+      description: Key of the customer.
+
+    - name: person_id
+      description: Key for the people associated with the customer.
+
+    - name: store_id
+      description: Key for the store associated with the customer.
+
+    - name: businessentity_id
+      description: Natural Key for the sales person.
+
     - name: geographical_region
       description: Name of geographical region.
 
