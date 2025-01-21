@@ -5,7 +5,7 @@ with
                /* Primary Key */
                "COUNTRYREGIONCODE" as country_region_code
                , "NAME"as country_region_name
-          from {{ source('sap_adw','countryregion') }}
+          from {{ source('sap_adw','countryregion_new') }}
      )
 
 select * 

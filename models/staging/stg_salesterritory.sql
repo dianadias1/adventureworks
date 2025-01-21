@@ -13,7 +13,7 @@ with
                , "SALESLASTYEAR" as territory_sales_last_year
                , "COSTYTD" as territory_cost_ytd
                , "COSTLASTYEAR" as territory_cost_last_year
-          from {{ source('sap_adw','salesterritory') }}
+          from {{ source('sap_adw','salesterritory_new') }}
      )
 
 select * 

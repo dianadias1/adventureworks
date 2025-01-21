@@ -19,7 +19,7 @@ sources:
           - name: STATEPROVINCEID
             description: Identifier for the state or province.
 
-      - name: countryregion
+      - name: countryregion_new
         description: Stores country and region details.
         columns:
           - name: COUNTRYREGIONCODE
@@ -196,7 +196,7 @@ sources:
           - name: NAME
             description: Reason for the sale.
 
-      - name: salesterritory
+      - name: salesterritory_new
         description: This table defines sales territories.
         columns:
           - name: TERRITORYID
