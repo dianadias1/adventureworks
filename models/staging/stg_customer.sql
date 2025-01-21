@@ -9,6 +9,7 @@ with
                , "STOREID" as store_id
                , "TERRITORYID" as territory_id
                , case
+                    when person_id is not null and store_id is not null then 'person and store'
                     when person_id is not null then 'person'
                     when store_id is not null then 'store'
                     else 'other'
