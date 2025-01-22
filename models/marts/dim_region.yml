@@ -16,6 +16,9 @@ models:
       - name: stateprovince_id
         description: Natural Key for the state province.
 
+      - name: isonlystateprovinceflag
+        description: Indicates if the state/province is unique for country.
+
       - name: geographical_region
         description: Name of geographical region.
 
