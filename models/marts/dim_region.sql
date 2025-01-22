@@ -18,6 +18,7 @@ with
                , country_region_code
                , territory_id
                , state_province_name
+               , isonlystateprovinceflag
           from {{ ref('stg_stateprovince') }}
      )
 
@@ -37,6 +38,7 @@ with
           ]) }} as region_sk
           , salesterritory.territory_id
           , stateprovince.stateprovince_id
+          , stateprovince.isonlystateprovinceflag
           , salesterritory.geographical_region
           , salesterritory.territory_name
           , countryregion.country_region_name

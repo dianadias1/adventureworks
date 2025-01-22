@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: agg_sales
-    description: Aggregates sales information by salesperson and region
+  - name: agg_sales_by_store
+    description: Aggregates sales information by store customers
     columns:
-    - name: aggsales_sk
+    - name: aggsalesstore_sk
       description: The Primary Key of table.
       tests:
           - not_null
@@ -18,13 +18,6 @@ models:
               to: ref('dim_region')
               field: region_sk
 
-    - name: salesperson_fk
-      description: Foreign Key for the sales person.
-      tests:
-        - relationships:
-              to: ref('dim_sales_person')
-              field: salesperson_sk
-
     - name: orderdetail_fk
       description: Foreign Key for the order details.
       tests:
@@ -32,8 +25,25 @@ models:
               to: ref('fct_order_details')
               field: orderdetail_sk
 
-    - name: businessentity_id
-      description: Natural Key for the sales person.
+    - name: customers_fk
+      description: Foreign Key for the order details.
+      tests:
+        - relationships:
+              to: ref('dim_customers')
+              field: customers_sk
+
+    - name: products_fk
+      description: Foreign Key for the product.
+      tests:
+        - relationships:
+              to: ref('dim_products')
+              field: products_sk
+
+    - name: store_id
+      description: Key for the store associated with the customer.
+
+    - name: store_name
+      description:  Stores's name.
 
     - name: geographical_region
       description: Name of geographical region.
@@ -47,6 +57,9 @@ models:
     - name: state_province_name
       description:  Name of the state or province.
 
+    - name: isonlystateprovinceflag
+      description: Indicates if the state/province is unique for country.
+
     - name: territory_sales_ytd
       description: Year-to-date sales total.
 
@@ -58,9 +71,6 @@ models:
       
     - name: territory_cost_last_year
       description: Last year cost total.
-
-    - name: person_name
-      description: Person's name.
 
     - name: payment_method
       description: Payment method.
@@ -86,4 +96,3 @@ models:
         - relationships:
               to: ref('dim_dates')
               field: date_day
-
