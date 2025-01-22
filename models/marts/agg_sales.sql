@@ -18,28 +18,17 @@ with
           from {{ ref('dim_sales_person') }}
      )
 
-     , dim_customers as (
-               select
-                    *
-               from {{ ref('dim_customers') }}
-     )
-
      , final_agg as (
           select
           {{ dbt_utils.generate_surrogate_key([
                "dim_region.territory_id"
                , "dim_region.stateprovince_id"
                , "dim_region.country_region_name"
-               , "dim_customers.customer_id"
                , "fct_order_details.salesorder_id"
           ]) }} as aggsales_sk
           , dim_region.region_sk as region_fk
           , dim_sales_person.salesperson_sk as salesperson_fk
           , fct_order_details.orderdetail_sk as orderdetail_fk
-          , dim_customers.customers_sk as customers_fk
-          , dim_customers.customer_id
-          , dim_customers.person_id
-          , dim_customers.store_id
           , dim_sales_person.businessentity_id
           , dim_region.geographical_region
           , dim_region.territory_name
@@ -62,8 +51,6 @@ with
                on fct_order_details.region_fk = dim_region.region_sk
           left join dim_sales_person
                on fct_order_details.salesperson_fk = dim_sales_person.salesperson_sk
-          left join dim_customers
-               on fct_order_details.customers_fk = dim_customers.customers_sk
      )
 
 select *
