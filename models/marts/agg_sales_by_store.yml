@@ -4,40 +4,8 @@ models:
   - name: agg_sales_by_store
     description: Aggregates sales information by store customers
     columns:
-    - name: aggsalesstore_sk
-      description: The Primary Key of table.
-      tests:
-          - not_null
-          - unique
-
-    - name: region_fk
-      description: Foreign Key for the region.
-      tests:
-        - not_null
-        - relationships:
-              to: ref('dim_region')
-              field: region_sk
-
-    - name: orderdetail_fk
-      description: Foreign Key for the order details.
-      tests:
-        - relationships:
-              to: ref('fct_order_details')
-              field: orderdetail_sk
-
-    - name: customers_fk
-      description: Foreign Key for the order details.
-      tests:
-        - relationships:
-              to: ref('dim_customers')
-              field: customers_sk
-
-    - name: products_fk
-      description: Foreign Key for the product.
-      tests:
-        - relationships:
-              to: ref('dim_products')
-              field: products_sk
+    - name: salesorder_id
+      description:  Natural Key for the sales order.
 
     - name: store_id
       description: Key for the store associated with the customer.
