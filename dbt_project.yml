@@ -40,6 +40,7 @@ models:
     staging:
       +materialized: view
     marts:
+      +schema: prod
       +materialized: table
 
 

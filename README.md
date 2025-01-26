@@ -1,6 +1,16 @@
 # Desafio Final LightHouse
 
-## Guia de Comandos
+# Adventure Works dbt
+
+## Estrutura do Projeto
+
+- models/: Contém todos os modelos dbt.
+- staging/: Modelos de staging que preparam dados brutos para uso posterior.
+- marts/: Modelos de marts que agregam e transformam dados para análise.
+- tests/: Contém testes para garantir a qualidade dos dados.
+- macros/: Contém macros reutilizáveis para o projeto.
+
+## Configurações de ambiente
 
 ### Ativando o virtual environment
 
@@ -12,7 +22,7 @@ Para desativar o ambiente virtual, basta rodar:
 
 - `deactivate`.
 
-### dbt
+### Comandos do dbt
 
 Para confirmar se o **profiles.yml** e o **dbt_project.yml** estão configurados e rodando corretamente, além de verificar novamente as dependências e as conexões necessárias:
 
@@ -30,18 +40,22 @@ Para refazer os modelos e atualizar os metadados:
 
 - `dbt run -s <modelo> --full-refresh`
 
-### git
+### Comandos de git
 
 Remover um arquivo caso eu tenha dado git add nele mas não quero commitar ele.
 
 - `git reset <nome_do_arquivo>`
 
 
-# Indicium Academy
+
+
+# Readme do repositório clonado
+
+## Indicium Academy 
 
 Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a insgestão das tabelas do SAP do Adventure Works.
 
-## Instruções
+### Instruções
 
 Todas as tabelas do banco fonte do SAP da Adventure Works serão carregadas como seeds pelo dbt. Os arquivos .csv com os dados já estão na pasta de seeds.
 
@@ -51,12 +65,12 @@ Para fazer o carregamento de todas as tabelas usem o comando:
 Para carregar uma tabela especifíca utilizem o comando
 - `dbt seed -s nome_do_csv`
 
-### Problemas comuns
+#### Problemas comuns
 
 Em caso a linha de comando do dbt fique com o status de estar sempre carregando, ou, o job do comando `dbt seed` fique rodando indefinitivamente mesmo após as 64 tabelas forem carregadas você precisará reiniciar o terminal. Para isso, clique nos três pontos no canto inferior direito ou no lado direito da linha de comando e escolha a opção `Restart IDE`.
 
 
-## Recursos:
+### Recursos:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
 - Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
